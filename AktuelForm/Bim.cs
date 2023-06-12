@@ -15,10 +15,13 @@ using System.Data.SqlClient;
 
 namespace AktuelForm
 {
+    
     public partial class Bim : Form
     {
+        AnaEkran ana = new AnaEkran();
         public Bim()
         {
+            this.ana= new AnaEkran();
             InitializeComponent();
         }
         public MySqlConnection mysqlbaglan = new MySqlConnection("Server=127.0.0.1;Database=akutel;Uid=root;Pwd='';");
@@ -208,6 +211,34 @@ namespace AktuelForm
             }
    
           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ana.Show();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ana.Show();
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            A101 a101 = new A101();
+            a101.Show();
+            this.Close();
+        }
+
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Sok sok = new Sok();
+            sok.Show();
+            this.Close();
         }
     }
 }

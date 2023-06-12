@@ -15,10 +15,14 @@ namespace AktuelForm
 {
     public partial class Sok : Form
     {
+        AnaEkran ana = new AnaEkran();
+        Bim bim= new Bim();
+        A101 a101 = new A101();
         public MySqlConnection mysqlbaglan = new MySqlConnection("Server=127.0.0.1;Database=akutel;Uid=root;Pwd='';");
 
         public Sok()
         {
+            ana= new AnaEkran();
             InitializeComponent();
         }
 
@@ -194,6 +198,31 @@ namespace AktuelForm
                 reader9.Close();
                 mysqlbaglan.Close();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ana.Show();
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            a101.Show();
+            this.Close();
+
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            bim.Show();
+            this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
