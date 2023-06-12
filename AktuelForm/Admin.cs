@@ -27,6 +27,24 @@ namespace AktuelForm
 
         public void button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text == "a101")
+            {
+                string Verii = textBox1.Text;
+                Duzen duzen = new Duzen();
+                duzen.Verii = Verii;
+            }
+            else if (textBox1.Text == "bim")
+            {
+                string Verii = textBox1.Text;
+                Duzen duzen = new Duzen();
+                duzen.Verii = Verii;
+            }
+            else if (textBox1.Text == "sok")
+            {
+                string Verii = textBox1.Text;
+                Duzen duzen = new Duzen();
+                duzen.Verii = Verii;
+            }
             string kullanici_adi = textBox1.Text;
             string sifre = textBox2.Text;
             MySqlCommand cmd = new MySqlCommand();
@@ -36,18 +54,7 @@ namespace AktuelForm
             MySqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                if (kullanici_adi == "a101")
-                {
-                    string Verii = kullanici_adi;
-                }
-                else if (kullanici_adi == "bim") 
-                {
-                    string Verii = kullanici_adi;
-                }
-                else if(kullanici_adi == "sok")
-                {
-                    string Verii = kullanici_adi;
-                }
+                
                 bool veri = true;
                 AnaEkran anaEkran = new AnaEkran();
                 anaEkran.Veri = veri;

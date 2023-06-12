@@ -28,14 +28,15 @@ namespace AktuelForm
 
         private void Duzen_Load(object sender, EventArgs e)
         {
-            kayitGetir();
+
             button7.Visible = false;
             button9.Visible = false;
-            button8.Visible=false;
+            button8.Visible = false;
 
             textBox3.Visible = false;
             if (Verii == "a101")
             {
+                kayitGetir1();
                 dataGridView2.Visible = false;
                 dataGridView3.Visible = false;
                 button3.Visible = false;
@@ -44,23 +45,26 @@ namespace AktuelForm
             }
             else if (Verii == "bim")
             {
+                kayitGetir2();
                 dataGridView1.Visible = false;
                 dataGridView3.Visible = false;
                 button2.Visible = false;
                 button5.Visible = false;
 
             }
-            else if (Verii =="sok")
+            else if (Verii == "sok")
             {
                 button3.Visible = false;
                 button2.Visible = false;
                 dataGridView2.Visible = false;
                 dataGridView1.Visible = false;
             }
-        }
+                
+            }
+,        }
        
 
-        private void kayitGetir()
+        private void kayitGetir1()
         {
             mysqlbaglan.Open();
 
@@ -69,10 +73,12 @@ namespace AktuelForm
             DataTable dataTable1 = new DataTable();
             adapter1.Fill(dataTable1);
 
-            string query2 = "SELECT bim_urun_id, Urun_adi, Urun_fiyati FROM bim_urun";
-            MySqlDataAdapter adapter2 = new MySqlDataAdapter(query2, mysqlbaglan);
-            DataTable dataTable2 = new DataTable();
-            adapter2.Fill(dataTable2);
+            mysqlbaglan.Close();
+
+         
+
+           
+            mysqlbaglan.Open();
 
             string query3 = "SELECT sok_urun_id, Urun_adi, Urun_fiyati FROM sok_urun";
             MySqlDataAdapter adapter3 = new MySqlDataAdapter(query3, mysqlbaglan);
@@ -80,9 +86,20 @@ namespace AktuelForm
             adapter3.Fill(dataTable3);
 
             dataGridView1.DataSource = dataTable1;
-            dataGridView2.DataSource = dataTable2;
             dataGridView3.DataSource = dataTable3;
             mysqlbaglan.Close();
+        }
+        private void kayitGetir2()
+        {
+            mysqlbaglan.Open();
+
+            string query2 = "SELECT bim_urun_id, Urun_adi, Urun_fiyati FROM bim_urun";
+            MySqlDataAdapter adapter2 = new MySqlDataAdapter(query2, mysqlbaglan);
+            DataTable dataTable2 = new DataTable();
+            adapter2.Fill(dataTable2);
+            mysqlbaglan.Close();
+            dataGridView2.DataSource = dataTable2;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
